@@ -1,9 +1,12 @@
 import { KPICard } from "@/components/dashboard/KPICard";
 import { AlertCard } from "@/components/dashboard/AlertCard";
+import { StatusChart } from "@/components/dashboard/StatusChart";
+import { TrendChart } from "@/components/dashboard/TrendChart";
+import { OverdueTable } from "@/components/dashboard/OverdueTable";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { mockKPIs, mockAlerts, mockFindings } from "@/data/mockData";
-import { ArrowRight, AlertCircle } from "lucide-react";
+import { mockKPIs, mockAlerts, mockFindings, mockStatusChartData, mockTrendData } from "@/data/mockData";
+import { ArrowRight, AlertCircle, BarChart3, ListTodo, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { FindingCard } from "@/components/findings/FindingCard";
 
@@ -11,6 +14,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const recentFindings = mockFindings.slice(0, 3);
   const activeAlerts = mockAlerts.filter(a => a.status === "active");
+  const overdueFindings = mockFindings.filter(f => f.status === "overdue").slice(0, 5);
 
   return (
     <div className="p-6 space-y-6">
@@ -35,6 +39,15 @@ export default function Dashboard() {
           <span className="text-sm text-muted-foreground ml-auto">Last updated: 2 minutes ago</span>
         </div>
       </Card>
+
+      {/* Audit Status Summary - Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <StatusChart data={mockStatusChartData} />
+        <TrendChart data={mockTrendData} />
+      </div>
+
+      {/* Action Center - Overdue Findings */}
+      <OverdueTable findings={overdueFindings} />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Findings */}
@@ -70,6 +83,40 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Quick Navigation Panel */}
+      <Card className="p-6">
+        <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Button 
+            variant="outline" 
+            className="h-auto py-4 flex flex-col gap-2"
+            onClick={() => navigate("/findings")}
+          >
+            <ListTodo className="h-6 w-6" />
+            <span className="font-semibold">View All Findings</span>
+            <span className="text-xs text-muted-foreground">Browse and manage all audit findings</span>
+          </Button>
+          <Button 
+            variant="outline" 
+            className="h-auto py-4 flex flex-col gap-2"
+            onClick={() => navigate("/analytics")}
+          >
+            <BarChart3 className="h-6 w-6" />
+            <span className="font-semibold">Analytics & Reports</span>
+            <span className="text-xs text-muted-foreground">View insights and generate reports</span>
+          </Button>
+          <Button 
+            variant="outline" 
+            className="h-auto py-4 flex flex-col gap-2"
+            onClick={() => navigate("/tasks")}
+          >
+            <FileText className="h-6 w-6" />
+            <span className="font-semibold">Workflow Tracker</span>
+            <span className="text-xs text-muted-foreground">Monitor tasks and assignments</span>
+          </Button>
+        </div>
+      </Card>
     </div>
   );
 }

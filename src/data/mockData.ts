@@ -273,3 +273,20 @@ export const mockAlerts: Alert[] = [
     status: "acknowledged",
   },
 ];
+
+// Dashboard Chart Data
+export const mockStatusChartData = [
+  { name: "Open", value: 45, color: "hsl(var(--status-high))" },
+  { name: "In Progress", value: 32, color: "hsl(var(--status-medium))" },
+  { name: "Closed", value: 89, color: "hsl(var(--status-low))" },
+  { name: "Overdue", value: 12, color: "hsl(var(--status-critical))" },
+];
+
+export const mockTrendData = [
+  { month: "May", closed: 15, opened: 18 },
+  { month: "Jun", closed: 22, opened: 20 },
+  { month: "Jul", closed: 18, opened: 16 },
+  { month: "Aug", closed: 25, opened: 22 },
+  { month: "Sep", closed: 20, opened: 15 },
+  { month: "Oct", closed: 28, opened: 19 },
+];
