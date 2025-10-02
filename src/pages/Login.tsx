@@ -22,7 +22,7 @@ export default function Login() {
       setIsLoading(false);
       toast({
         title: "Welcome back!",
-        description: "Successfully logged in to Audit Tracker",
+        description: "Successfully logged in to VISTA",
       });
       navigate("/dashboard");
     }, 1000);
@@ -35,10 +35,13 @@ export default function Login() {
           <div className="mx-auto w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
             <FileCheck className="h-6 w-6 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl">Centralized Audit Tracker</CardTitle>
-          <CardDescription>
-            Sign in to access your audit management platform
+          <CardTitle className="text-3xl font-bold">VISTA</CardTitle>
+          <CardDescription className="text-base font-medium">
+            Visibility & Insight System for Tracking Audits
           </CardDescription>
+          <p className="text-sm text-muted-foreground italic">
+            Empowering Visibility, Accountability, and Audit Excellence
+          </p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

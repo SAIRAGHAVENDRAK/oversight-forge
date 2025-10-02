@@ -55,11 +55,11 @@ export function AppSidebar() {
         <div className="p-4 border-b border-sidebar-border">
           {!isCollapsed ? (
             <div>
-              <h2 className="text-lg font-bold text-sidebar-foreground">Audit Tracker</h2>
-              <p className="text-xs text-sidebar-foreground/70">Centralized Platform</p>
+              <h2 className="text-lg font-bold text-sidebar-foreground">VISTA</h2>
+              <p className="text-xs text-sidebar-foreground/70">Audit Tracking Platform</p>
             </div>
           ) : (
-            <div className="text-2xl font-bold text-sidebar-primary text-center">AT</div>
+            <div className="text-2xl font-bold text-sidebar-primary text-center">V</div>
           )}
         </div>
 
