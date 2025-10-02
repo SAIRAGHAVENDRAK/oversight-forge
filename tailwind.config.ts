@@ -57,6 +57,32 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        status: {
+          critical: "hsl(var(--critical))",
+          "critical-foreground": "hsl(var(--critical-foreground))",
+          high: "hsl(var(--high))",
+          "high-foreground": "hsl(var(--high-foreground))",
+          medium: "hsl(var(--medium))",
+          "medium-foreground": "hsl(var(--medium-foreground))",
+          low: "hsl(var(--low))",
+          "low-foreground": "hsl(var(--low-foreground))",
+          info: "hsl(var(--info))",
+          "info-foreground": "hsl(var(--info-foreground))",
+        },
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-accent": "var(--gradient-accent)",
+      },
+      boxShadow: {
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        accent: "var(--shadow-accent)",
+      },
+      transitionProperty: {
+        base: "var(--transition-base)",
+        smooth: "var(--transition-smooth)",
       },
       borderRadius: {
         lg: "var(--radius)",
