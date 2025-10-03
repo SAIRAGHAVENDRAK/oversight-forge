@@ -50,6 +50,25 @@ export interface Finding {
   remediationPlan?: string;
   comments: Comment[];
   tags: string[];
+  tasks?: Task[];
+  history?: HistoryEvent[];
+}
+
+export interface Task {
+  id: string;
+  description: string;
+  assignee: User;
+  dueDate: string;
+  status: "open" | "completed";
+  completedDate?: string;
+}
+
+export interface HistoryEvent {
+  id: string;
+  action: string;
+  user: User;
+  timestamp: string;
+  details?: string;
 }
 
 export interface Comment {

@@ -1,5 +1,5 @@
 // Mock data for development and demonstration
-import { Audit, Finding, KPIMetric, Alert, User } from "@/types/audit";
+import { Audit, Finding, KPIMetric, Alert, User, Task, HistoryEvent } from "@/types/audit";
 
 export const mockUsers: User[] = [
   {
@@ -159,6 +159,67 @@ export const mockFindings: Finding[] = [
       },
     ],
     tags: ["privileged-access", "monitoring", "IT-security"],
+    tasks: [
+      {
+        id: "TSK-001",
+        description: "Implement SIEM solution for privileged access monitoring",
+        assignee: mockUsers[2],
+        dueDate: "2025-02-15",
+        status: "open",
+      },
+      {
+        id: "TSK-002",
+        description: "Configure automated alerts for suspicious admin activities",
+        assignee: mockUsers[2],
+        dueDate: "2025-02-20",
+        status: "open",
+      },
+      {
+        id: "TSK-003",
+        description: "Document new monitoring procedures",
+        assignee: mockUsers[1],
+        dueDate: "2025-02-25",
+        status: "completed",
+        completedDate: "2025-02-10",
+      },
+    ],
+    history: [
+      {
+        id: "HIST-001",
+        action: "Finding Created",
+        user: mockUsers[1],
+        timestamp: "2025-01-20T09:15:00Z",
+        details: "Critical finding identified during privileged access review",
+      },
+      {
+        id: "HIST-002",
+        action: "Status Changed to In Progress",
+        user: mockUsers[2],
+        timestamp: "2025-01-22T14:30:00Z",
+        details: "Remediation plan approved and work has begun",
+      },
+      {
+        id: "HIST-003",
+        action: "Task Assigned",
+        user: mockUsers[0],
+        timestamp: "2025-01-23T10:00:00Z",
+        details: "SIEM implementation task assigned to IT team",
+      },
+      {
+        id: "HIST-004",
+        action: "Comment Added",
+        user: mockUsers[1],
+        timestamp: "2025-01-25T10:30:00Z",
+        details: "Management commitment received for tool procurement",
+      },
+      {
+        id: "HIST-005",
+        action: "Task Completed",
+        user: mockUsers[1],
+        timestamp: "2025-02-10T16:45:00Z",
+        details: "Monitoring procedures documentation completed",
+      },
+    ],
   },
   {
     id: "FND-2025-002",
