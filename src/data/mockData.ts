@@ -344,10 +344,33 @@ export const mockStatusChartData = [
 ];
 
 export const mockTrendData = [
-  { month: "May", closed: 15, opened: 18 },
-  { month: "Jun", closed: 22, opened: 20 },
-  { month: "Jul", closed: 18, opened: 16 },
-  { month: "Aug", closed: 25, opened: 22 },
-  { month: "Sep", closed: 20, opened: 15 },
-  { month: "Oct", closed: 28, opened: 19 },
+  { month: "Jan", closed: 12, opened: 15 },
+  { month: "Feb", closed: 15, opened: 18 },
+  { month: "Mar", closed: 20, opened: 14 },
+  { month: "Apr", closed: 18, opened: 12 },
+  { month: "May", closed: 22, opened: 16 },
+  { month: "Jun", closed: 25, opened: 10 },
+  { month: "Jul", closed: 28, opened: 8 },
+  { month: "Aug", closed: 24, opened: 11 },
+  { month: "Sep", closed: 30, opened: 9 },
+  { month: "Oct", closed: 26, opened: 13 },
+  { month: "Nov", closed: 32, opened: 7 },
+  { month: "Dec", closed: 35, opened: 6 },
+];
+
+export const mockDepartmentData = [
+  { department: "IT Security", count: 28, color: "hsl(var(--status-critical))" },
+  { department: "Finance", count: 15, color: "hsl(var(--status-high))" },
+  { department: "HR", count: 8, color: "hsl(var(--status-medium))" },
+  { department: "Operations", count: 12, color: "hsl(var(--status-info))" },
+  { department: "Legal", count: 5, color: "hsl(var(--status-low))" },
+];
+
+export const mockCategoryHeatmap = [
+  { category: "Access Control Violations", frequency: 12, severity: "high" as const },
+  { category: "Data Privacy Compliance", frequency: 8, severity: "high" as const },
+  { category: "Password Policy Breaches", frequency: 15, severity: "medium" as const },
+  { category: "Encryption Standards", frequency: 6, severity: "high" as const },
+  { category: "Audit Trail Gaps", frequency: 4, severity: "medium" as const },
+  { category: "Documentation Issues", frequency: 10, severity: "low" as const },
 ];
