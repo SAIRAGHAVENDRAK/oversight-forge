@@ -8,6 +8,7 @@ import {
   Bell,
   Settings,
   FileCheck,
+  Users,
 } from "lucide-react";
 import {
   Sidebar,
@@ -27,6 +28,7 @@ const primaryItems = [
   { title: "Audits", url: "/audits", icon: FileCheck },
   { title: "Findings", url: "/findings", icon: AlertCircle },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
+  { title: "Ownership", url: "/ownership", icon: Users },
 ];
 
 const secondaryItems = [

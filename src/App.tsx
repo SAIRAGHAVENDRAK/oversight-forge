@@ -10,6 +10,7 @@ import Audits from "./pages/Audits";
 import Findings from "./pages/Findings";
 import FindingDetail from "./pages/FindingDetail";
 import Analytics from "./pages/Analytics";
+import Ownership from "./pages/Ownership";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/findings" element={<Findings />} />
             <Route path="/findings/:id" element={<FindingDetail />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/ownership" element={<Ownership />} />
             <Route path="/tasks" element={<Placeholder />} />
             <Route path="/alerts" element={<Placeholder />} />
             <Route path="/reports" element={<Placeholder />} />
