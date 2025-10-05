@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { DashboardLayout } from "./components/layout/DashboardLayout";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import CIODashboard from "./pages/CIODashboard";
+import RCODashboard from "./pages/RCODashboard";
+import ITSODashboard from "./pages/ITSODashboard";
 import Audits from "./pages/Audits";
 import Findings from "./pages/Findings";
 import FindingDetail from "./pages/FindingDetail";
@@ -13,8 +16,18 @@ import Analytics from "./pages/Analytics";
 import Ownership from "./pages/Ownership";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
+import { useUserRole } from "./hooks/useUserRole";
 
 const queryClient = new QueryClient();
+
+function DashboardRouter() {
+  const { role } = useUserRole();
+  
+  if (role === "cio") return <CIODashboard />;
+  if (role === "rco") return <RCODashboard />;
+  if (role === "itso") return <ITSODashboard />;
+  return <Dashboard />;
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -25,7 +38,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Login />} />
           <Route element={<DashboardLayout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<DashboardRouter />} />
             <Route path="/audits" element={<Audits />} />
             <Route path="/findings" element={<Findings />} />
             <Route path="/findings/:id" element={<FindingDetail />} />

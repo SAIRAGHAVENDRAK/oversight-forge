@@ -17,12 +17,21 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate authentication
+    // Simulate authentication and store email for role detection
     setTimeout(() => {
       setIsLoading(false);
+      localStorage.setItem("userEmail", email);
+      
+      // Detect role from email
+      const lowerEmail = email.toLowerCase();
+      let role = "default";
+      if (lowerEmail.includes("cio")) role = "cio";
+      else if (lowerEmail.includes("rco")) role = "rco";
+      else if (lowerEmail.includes("itso")) role = "itso";
+      
       toast({
         title: "Welcome back!",
-        description: "Successfully logged in to VISTA",
+        description: `Successfully logged in as ${role.toUpperCase()}`,
       });
       navigate("/dashboard");
     }, 1000);
