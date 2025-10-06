@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -5,8 +6,10 @@ import { Progress } from "@/components/ui/progress";
 import { mockAudits } from "@/data/mockData";
 import { Plus, Calendar, User, TrendingUp } from "lucide-react";
 import { format } from "date-fns";
+import { NewAuditDialog } from "@/components/audits/NewAuditDialog";
 
 export default function Audits() {
+  const [showNewAuditDialog, setShowNewAuditDialog] = useState(false);
   const statusColorMap: Record<string, "default" | "secondary" | "outline"> = {
     planned: "outline",
     in_progress: "default",
@@ -22,11 +25,14 @@ export default function Audits() {
           <h1 className="text-3xl font-bold mb-2">Audits</h1>
           <p className="text-muted-foreground">Manage and track all audit engagements</p>
         </div>
-        <Button className="bg-accent hover:bg-accent/90">
+        <Button className="bg-accent hover:bg-accent/90" onClick={() => setShowNewAuditDialog(true)}>
           <Plus className="mr-2 h-4 w-4" />
           New Audit
         </Button>
       </div>
+
+      {/* New Audit Dialog */}
+      <NewAuditDialog open={showNewAuditDialog} onOpenChange={setShowNewAuditDialog} />
 
       {/* Summary Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
