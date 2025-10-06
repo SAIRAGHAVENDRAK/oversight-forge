@@ -5,8 +5,10 @@ import { mockAudits, mockFindings } from "@/data/mockData";
 import { Brain, Download, FileText, Shield, Calendar, TrendingUp, Target } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { useNavigate } from "react-router-dom";
 
 export default function ITSODashboard() {
+  const navigate = useNavigate();
   const totalAudits = mockAudits.length;
   const soxAudits = mockAudits.filter(a => a.auditType.toLowerCase().includes("sox")).length;
   const controlsTested = mockAudits.reduce((sum, a) => sum + a.findingsCount, 0);
@@ -214,7 +216,11 @@ export default function ITSODashboard() {
               </thead>
               <tbody>
                 {auditHistory.map((audit, index) => (
-                  <tr key={index} className="border-b hover:bg-muted/50">
+                  <tr 
+                    key={index} 
+                    className="border-b hover:bg-muted/50 cursor-pointer transition-colors"
+                    onClick={() => navigate(`/itso-dashboard/app/${audit.app.toLowerCase().replace(/\s+/g, '-')}`)}
+                  >
                     <td className="py-3 px-4 font-semibold">{audit.app}</td>
                     <td className="py-3 px-4">
                       <Badge variant="outline">{audit.type}</Badge>

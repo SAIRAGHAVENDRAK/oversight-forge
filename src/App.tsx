@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import CIODashboard from "./pages/CIODashboard";
 import RCODashboard from "./pages/RCODashboard";
 import ITSODashboard from "./pages/ITSODashboard";
+import ApplicationAuditHistory from "./pages/ApplicationAuditHistory";
 import Audits from "./pages/Audits";
 import Findings from "./pages/Findings";
 import FindingDetail from "./pages/FindingDetail";
@@ -39,6 +40,10 @@ const App = () => (
           <Route path="/" element={<Login />} />
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<DashboardRouter />} />
+            <Route path="/cio-dashboard" element={<CIODashboard />} />
+            <Route path="/rco-dashboard" element={<RCODashboard />} />
+            <Route path="/itso-dashboard" element={<ITSODashboard />} />
+            <Route path="/itso-dashboard/app/:appName" element={<ApplicationAuditHistory />} />
             <Route path="/audits" element={<Audits />} />
             <Route path="/findings" element={<Findings />} />
             <Route path="/findings/:id" element={<FindingDetail />} />
