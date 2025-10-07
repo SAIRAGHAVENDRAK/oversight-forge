@@ -7,9 +7,18 @@ import { mockAudits } from "@/data/mockData";
 import { Plus, Calendar, User, TrendingUp } from "lucide-react";
 import { format } from "date-fns";
 import { NewAuditDialog } from "@/components/audits/NewAuditDialog";
+import { AuditFindingsDrawer } from "@/components/audits/AuditFindingsDrawer";
+import { Audit } from "@/types/audit";
 
 export default function Audits() {
   const [showNewAuditDialog, setShowNewAuditDialog] = useState(false);
+  const [selectedAudit, setSelectedAudit] = useState<Audit | null>(null);
+  const [showFindingsDrawer, setShowFindingsDrawer] = useState(false);
+
+  const handleAuditClick = (audit: Audit) => {
+    setSelectedAudit(audit);
+    setShowFindingsDrawer(true);
+  };
   const statusColorMap: Record<string, "default" | "secondary" | "outline"> = {
     planned: "outline",
     in_progress: "default",
@@ -60,10 +69,21 @@ export default function Audits() {
         </Card>
       </div>
 
+      {/* Audit Findings Drawer */}
+      <AuditFindingsDrawer 
+        audit={selectedAudit} 
+        open={showFindingsDrawer} 
+        onOpenChange={setShowFindingsDrawer} 
+      />
+
       {/* Audits List */}
       <div className="space-y-4">
         {mockAudits.map((audit) => (
-          <Card key={audit.id} className="p-6 hover:shadow-lg transition-all cursor-pointer">
+          <Card 
+            key={audit.id} 
+            className="p-6 hover:shadow-lg transition-all cursor-pointer"
+            onClick={() => handleAuditClick(audit)}
+          >
             <div className="space-y-4">
               {/* Header */}
               <div className="flex items-start justify-between">
