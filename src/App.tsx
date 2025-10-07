@@ -15,6 +15,7 @@ import Findings from "./pages/Findings";
 import FindingDetail from "./pages/FindingDetail";
 import Analytics from "./pages/Analytics";
 import Ownership from "./pages/Ownership";
+import Settings from "./pages/Settings";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 import { useUserRole } from "./hooks/useUserRole";
@@ -52,7 +53,7 @@ const App = () => (
             <Route path="/tasks" element={<Placeholder />} />
             <Route path="/alerts" element={<Placeholder />} />
             <Route path="/reports" element={<Placeholder />} />
-            <Route path="/settings" element={<Placeholder />} />
+            <Route path="/settings" element={<Settings />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
