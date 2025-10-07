@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -75,17 +75,17 @@ const mockTasks: Record<string, JiraTask[]> = {
 
 export function JiraIntegration() {
   const { toast } = useToast();
-  const [isConnected, setIsConnected] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
-  const [isFetching, setIsFetching] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [projects, setProjects] = useState<JiraProject[]>([]);
-  const [stories, setStories] = useState<Record<string, JiraStory[]>>({});
-  const [tasks, setTasks] = useState<Record<string, JiraTask[]>>({});
-  const [syncLogs, setSyncLogs] = useState<string[]>([]);
-  const [showLogs, setShowLogs] = useState(false);
-  const [expandedStory, setExpandedStory] = useState<string | null>(null);
-  const [showConfetti, setShowConfetti] = useState(false);
+  const [isConnected, setIsConnected] = React.useState(false);
+  const [isConnecting, setIsConnecting] = React.useState(false);
+  const [isFetching, setIsFetching] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
+  const [projects, setProjects] = React.useState<JiraProject[]>([]);
+  const [stories, setStories] = React.useState<Record<string, JiraStory[]>>({});
+  const [tasks, setTasks] = React.useState<Record<string, JiraTask[]>>({});
+  const [syncLogs, setSyncLogs] = React.useState<string[]>([]);
+  const [showLogs, setShowLogs] = React.useState(false);
+  const [expandedStory, setExpandedStory] = React.useState<string | null>(null);
+  const [showConfetti, setShowConfetti] = React.useState(false);
 
   const handleConnect = async () => {
     setIsConnecting(true);
